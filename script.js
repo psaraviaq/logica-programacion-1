@@ -2,8 +2,12 @@ const numeros = [];
 const cajaTexto = document.getElementById("resultado");
 
 for (let i = 0; i < 3; i++) {
-  let numero = prompt(`Ingresa el número ${i + 1}:`);
-  numeros.push(Number(numero));
+  let numero = Number(prompt(`Ingresa el número ${i + 1}:`));
+  while (isNaN(numero)) {
+    numero = Number(prompt("Entrada no válida. Ingresa un número:"));
+  }
+
+  numeros.push(numero);
 }
 
 const ordenados = numeros.sort((a, b) => b - a);
